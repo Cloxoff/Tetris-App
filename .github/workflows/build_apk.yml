@@ -44,3 +44,14 @@ jobs:
           name: tetris-release-apk
           path: build/app/outputs/flutter-apk/app-release.apk
           retention-days: 30
+
+      - name: Publish APK to Public Showcase
+        uses: softprops/action-gh-release@v2
+        with:
+          repository: Cloxoff/tetris-game
+          token: ${{ secrets.PAT_TOKEN }}
+          tag_name: v1.0.0
+          name: Tetris Mobile v1.0.0
+          files: build/app/outputs/flutter-apk/app-release.apk
+          draft: false
+          prerelease: false
